@@ -2,17 +2,46 @@
 
 int main(void)
 {
-    int n;
-    int i;
-    int sum = 0;
+    int a, b;
+    int result;
+    char op;
 
-    printf("input a number:");
-    scanf("%d", &n);
+    printf("enter the calculation : ");
+    scanf("%d %c %d", &a, &op, &b);
 
-    for (i = 1; i <= n; i++)
-        sum += i;
+    switch (op)
+    {
+    case '+':
+        result = a + b;
+        break;
+    case '-':
+        result = a - b;
+        break;
+    case '*':
+        result = a * b;
+        break;
+    case '/':
+        if (b == 0)
+        {
+            printf("0으로 나눌 수 없습니다.\n");
+            return 0;
+        }
+        result = a / b;
+        break;
+    case '%':
+        if (b == 0)
+        {
+            printf("0으로 나눌 수 없습니다.\n");
+            return 0;
+        }
+        result = a % b;
+        break;
+    default:
+        printf("지원하지 않는 연산자입니다.\n");
+        return 0;
+    }
 
-    printf("The result is %d\n", sum);
+    printf("%d %c %d = %d\n", a, op, b, result);
 
     return 0;
 }
