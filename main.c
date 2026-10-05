@@ -2,46 +2,23 @@
 
 int main(void)
 {
-    int a, b;
-    int result;
-    char op;
+    int answer = 59;
+    int guess;
+    int trials = 0;
 
-    printf("enter the calculation : ");
-    scanf("%d %c %d", &a, &op, &b);
-
-    switch (op)
+    do
     {
-    case '+':
-        result = a + b;
-        break;
-    case '-':
-        result = a - b;
-        break;
-    case '*':
-        result = a * b;
-        break;
-    case '/':
-        if (b == 0)
-        {
-            printf("0으로 나눌 수 없습니다.\n");
-            return 0;
-        }
-        result = a / b;
-        break;
-    case '%':
-        if (b == 0)
-        {
-            printf("0으로 나눌 수 없습니다.\n");
-            return 0;
-        }
-        result = a % b;
-        break;
-    default:
-        printf("지원하지 않는 연산자입니다.\n");
-        return 0;
-    }
+        printf("Guess a number :");
+        scanf("%d", &guess);
+        trials++;
 
-    printf("%d %c %d = %d\n", a, op, b, result);
+        if (guess < answer)
+            printf("low!\n");
+        else if (guess > answer)
+            printf("high!\n");
+    } while (guess != answer);
+
+    printf("Congratulation! trials:%d\n", trials);
 
     return 0;
 }
